@@ -1,0 +1,268 @@
+[
+  {
+    "id": 1,
+    "name": "Cabezal Epson I3200-U1 Original",
+    "price": 1700.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2021/08/cabezal-epson-i3200-Plotterpedia.jpg",
+    "category": "Cabezales"
+  },
+  {
+    "id": 2,
+    "name": "Cabezal Epson I3200-E1 Original",
+    "price": 1600.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2021/08/cabezal-epson-i3200-Plotterpedia.jpg",
+    "category": "Cabezales"
+  },
+  {
+    "id": 3,
+    "name": "Cabezal Epson I3200-A1 Original",
+    "price": 1400.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2021/08/cabezal-epson-i3200-Plotterpedia.jpg",
+    "category": "Cabezales"
+  },
+  {
+    "id": 4,
+    "name": "Cabezal Epson I1600-U1 Original",
+    "price": 1390.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/03/cabezal-epson-i1600-Plotterpedia.jpg",
+    "category": "Cabezales"
+  },
+  {
+    "id": 5,
+    "name": "Cabezal Epson I1600 (Original Precision)",
+    "price": 1100.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/03/cabezal-epson-i1600-Plotterpedia.jpg",
+    "category": "Cabezales"
+  },
+  {
+    "id": 6,
+    "name": "Cabezal Epson I1600-A1 Original",
+    "price": 890.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/03/cabezal-epson-i1600-Plotterpedia.jpg",
+    "category": "Cabezales"
+  },
+  {
+    "id": 7,
+    "name": "Bomba de Aire Grande para Plotter",
+    "price": 0.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/03/plotterpedia-37-430x287.jpg",
+    "category": "Bombas"
+  },
+  {
+    "id": 8,
+    "name": "Bomba Peristáltica para Plotter",
+    "price": 0.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/03/plotterpedia-36.jpg",
+    "category": "Bombas"
+  },
+  {
+    "id": 9,
+    "name": "Botella Dispensadora de Tinta",
+    "price": 0.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2025/09/botella-dispensadora_1_11zon.webp",
+    "category": "Accesorios"
+  },
+  {
+    "id": 10,
+    "name": "Cabezal Ricoh Gen5 Original",
+    "price": 0.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2025/09/Ricoh-Gen-5_33_11zon-430x430.webp",
+    "category": "Cabezales"
+  },
+  {
+    "id": 11,
+    "name": "Cabezal Ricoh GH2220 Original",
+    "price": 0.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2025/09/Ricoh-GH-2220_31_11zon-430x430.webp",
+    "category": "Cabezales"
+  },
+  {
+    "id": 12,
+    "name": "Cabezal Spectra Polaris 512",
+    "price": 0.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2025/09/Spectra-Polaris-512_29_11zon-430x430.webp",
+    "category": "Cabezales"
+  },
+  {
+    "id": 13,
+    "name": "Holder Metálico para Cabezal I3200",
+    "price": 0.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2025/09/Holder-metalico_9_11zon-430x287.webp",
+    "category": "Soportes"
+  },
+  {
+    "id": 14,
+    "name": "Holder Plástico para Cabezal I3200",
+    "price": 0.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2025/09/Holder-metalico_9_11zon-430x287.webp",
+    "category": "Soportes"
+  },
+  {
+    "id": 15,
+    "name": "Sensor de Papel para Plotter",
+    "price": 0.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2025/09/SENSOR-DE-PAPEL_9_11zon-430x430.webp",
+    "category": "Sensores"
+  },
+  {
+    "id": 16,
+    "name": "Vacuum Pequeño para Plotter",
+    "price": 0.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2025/09/vaccum-pequeno_20-430x287.webp",
+    "category": "Accesorios"
+  },
+  {
+    "id": 17,
+    "name": "Cable Flex 21 Pinos Epson",
+    "price": 0.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2025/09/Cable-flex-21p-430x287.webp",
+    "category": "Cables"
+  },
+  {
+    "id": 18,
+    "name": "Cable Flex I3200 Epson",
+    "price": 0.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2025/09/Cable-flex-i3200-430x287.webp",
+    "category": "Cables"
+  },
+  {
+    "id": 19,
+    "name": "Cap I3200 B (Estación Limpieza)",
+    "price": 0.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2025/09/Cap-i3200-b-430x287.webp",
+    "category": "Mantenimiento"
+  },
+  {
+    "id": 20,
+    "name": "Tanque Distribución de Tinta",
+    "price": 0.00,
+    "image": "https://plotterpedia.com/wp-content/uploads/2025/09/Tanque-distribucion-430x287.webp",
+    "category": "Sistema de Tinta"
+  },
+  {
+    "id": 21,
+    "name": "Rodillo de Presión LETOP",
+    "price": 8.42,
+    "image": "https://s.alicdn.com/@sc04/kf/H36ab967f76794fcb8e012ca539a15ce0J/Ensamblaje-de-Rodillo-de-Presi-n-LETOP.jpg",
+    "category": "Repuestos"
+  },
+  {
+    "id": 22,
+    "name": "Portacuchillas CB09",
+    "price": 11.48,
+    "image": "https://s.alicdn.com/@sc04/kf/Hb1564f5e6b8947d6ba247d75561cefeah/Portacuchillas-de-Carburo-Cementado-CB09-CB09UA-5.jpg_480x480.jpg",
+    "category": "Accesorios"
+  },
+  {
+    "id": 23,
+    "name": "Cable de datos 14 pines I3200",
+    "price": 0.77,
+    "image": "https://s.alicdn.com/@sc04/kf/Hf41c75260c094b4c88d66513bc3b1607M/Cable-de-datos-de-14-pines-I3200.jpg",
+    "category": "Cables"
+  },
+  {
+    "id": 24,
+    "name": "Bomba de Tinta FH-3",
+    "price": 15.12,
+    "image": "https://s.alicdn.com/@sc04/kf/H138a76d722b44c5dba36682246f5773fS/Bomba-de-Tinta-L-quida-FH-3.jpg",
+    "category": "Bombas"
+  },
+  {
+    "id": 25,
+    "name": "Bomba de tinta UV SYPDA",
+    "price": 6.22,
+    "image": "https://s.alicdn.com/@sc04/kf/Hb90ff1b4948841bca071b146afbdfe03m/Bomba-de-tinta-peque-a-UV-SYPDA.png",
+    "category": "Bombas"
+  },
+  {
+    "id": 26,
+    "name": "Limpiaparabrisas Roland Original",
+    "price": 13.39,
+    "image": "https://s.alicdn.com/@sc04/kf/H4726703c824841d39698b50b789607adZ/Limpiaparabrisas-de-fieltro-Original-Roland-1000006736-para.png",
+    "category": "Mantenimiento"
+  },
+  {
+    "id": 27,
+    "name": "Cable Largo para Placa",
+    "price": 6.22,
+    "image": "https://s.alicdn.com/@sc04/kf/H1dd44ae9ed0849189fb7cd95cde4b42ct/Cable-Largo-para-Impresora-Cable-para-Placa.png_480x480.jpg",
+    "category": "Cables"
+  },
+  {
+    "id": 28,
+    "name": "Bomba blanca LETOP",
+    "price": 13.39,
+    "image": "https://s.alicdn.com/@sc04/kf/H5d09c513462e44f7aa99b7f89da2f35fx/Bomba-de-circulaci-n-de-tinta-blanca.png",
+    "category": "Bombas"
+  },
+  {
+    "id": 29,
+    "name": "Máquina de botones metálicos",
+    "price": 155.47,
+    "image": "https://s.alicdn.com/@sc04/kf/H20347e38446d4bdc8510f0e3527d48fdB/M-quina-semiautom-tica-manual-para-botones.jpg_480x480.jpg",
+    "category": "Maquinaria"
+  },
+  {
+    "id": 30,
+    "name": "Motor agitador de polvo DC",
+    "price": 28.70,
+    "image": "https://s.alicdn.com/@sc04/kf/H9bc941a8c1f94b6cb5668f137cfc50649/Impresora-DTF-D650-H650-Motor-agitador-de.jpg_480x480.jpg",
+    "category": "Repuestos"
+  },
+  {
+    "id": 31,
+    "name": "Logo UV Transfer para Letop",
+    "price": 14.26,
+    "image": "https://s.alicdn.com/@sc04/kf/H4360dbcafbee4078954f8fb23c53c795G/LETOP-personalizado-UV-transferencia-pegatina-logo-impermeable.png",
+    "category": "Accesorios"
+  },
+  {
+    "id": 32,
+    "name": "Cable Datos 6.1m Placa Base",
+    "price": 4.90,
+    "image": "https://s.alicdn.com/@sc04/kf/Haa34a5fdb8094e5e9c2cc41c938d73afm/Cable-de-Datos-de-6-1m-para.jpg",
+    "category": "Cables"
+  },
+  {
+    "id": 33,
+    "name": "Placa Base UV TX800",
+    "price": 1325.99,
+    "image": "https://s.alicdn.com/@sc04/kf/H25d5e3b02ce6400f8ac5c09688eea2b5Z/Placa-Base-para-Impresora-UV-de-Cama.png_480x480.jpg",
+    "category": "Electrónica"
+  },
+  {
+    "id": 34,
+    "name": "Placa Konica 512i EcoSolvent",
+    "price": 1148.05,
+    "image": "https://s.alicdn.com/@sc04/kf/H82cf9f2f46934f9aa619d05cdf9ab5e2U/OT-Sale-ololent-rrinter-onica-512i-ooard.png",
+    "category": "Electrónica"
+  },
+  {
+    "id": 35,
+    "name": "Tinta Konica 512i 30pl",
+    "price": 30.62,
+    "image": "https://s.alicdn.com/@sc04/kf/Hb7af0e83a7bb4785b3cb08eb11c05fddD/Iyu-ARGE-Ormat-olent-rinter-onica-512i.jpg_480x480.jpg",
+    "category": "Tintas"
+  },
+  {
+    "id": 36,
+    "name": "Soporte Amortiguador I3200",
+    "price": 4.11,
+    "image": "https://s.alicdn.com/@sc04/kf/Hb938929b2cf4493bb69b1aa56255c6591/Soporte-de-Amortiguador-I3200-Marco-de-Fijaci.jpg",
+    "category": "Soportes"
+  },
+  {
+    "id": 37,
+    "name": "Bomba de Aire UV 24V",
+    "price": 4.28,
+    "image": "https://s.alicdn.com/@sc04/kf/Hb938929b2cf4493bb69b1aa56255c6591/Bomba-de-Aire-UV-LETOP-JYY-24V.jpg",
+    "category": "Bombas"
+  },
+  {
+    "id": 38,
+    "name": "Correa de caucho 380 2GT",
+    "price": 2.33,
+    "image": "https://s.alicdn.com/@sc04/kf/Hb938929b2cf4493bb69b1aa56255c6591/Correa-de-distribucion-de-caucho-380-2GT.jpg",
+    "category": "Repuestos"
+  }
+]
