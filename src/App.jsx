@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingCart, Package, Plus, Trash2, Search, X, FileText, ChevronRight } from 'lucide-react';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 import initialProducts from './data/products.json';
 
 function App() {
@@ -18,10 +20,18 @@ function App() {
     name: '',
     price: '',
     category: 'Repuestos',
-    image: ''
+    image: '',
+    stock: 0
   });
   
   const [editingProduct, setEditingProduct] = useState(null);
+  const [clientInfo, setClientInfo] = useState({
+    name: '',
+    ruc: '',
+    address: '',
+    phone: ''
+  });
+  const [showPreview, setShowPreview] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('plotter_inventory', JSON.stringify(products));
@@ -48,14 +58,16 @@ function App() {
       setProducts(products.map(p => p.id === editingProduct.id ? { 
         ...p, 
         ...newProduct, 
-        price: parseFloat(newProduct.price) || 0 
+        price: parseFloat(newProduct.price) || 0,
+        stock: parseInt(newProduct.stock) || 0
       } : p));
       setEditingProduct(null);
     } else {
       const product = {
         ...newProduct,
         id: Date.now(),
-        price: parseFloat(newProduct.price) || 0
+        price: parseFloat(newProduct.price) || 0,
+        stock: parseInt(newProduct.stock) || 0
       };
       setProducts([product, ...products]);
     }
@@ -68,7 +80,8 @@ function App() {
       name: product.name,
       price: product.price,
       category: product.category,
-      image: product.image
+      image: product.image,
+      stock: product.stock || 0
     });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -80,6 +93,99 @@ function App() {
   };
 
   const totalPrice = quoteItems.reduce((acc, item) => acc + (item.price * item.qty), 0);
+
+  const generatePDF = () => {
+    const doc = new jsPDF();
+    const date = new Date().toLocaleDateString();
+    const quoteNumber = `CP-${Math.floor(1000 + Math.random() * 9000)}`;
+    const brandColor = [125, 206, 209]; // #7dced1
+
+    // White Header Background
+    doc.setFillColor(255, 255, 255);
+    doc.rect(0, 0, 210, 45, 'F');
+
+    // Separator Line
+    doc.setDrawColor(brandColor[0], brandColor[1], brandColor[2]);
+    doc.setLineWidth(1);
+    doc.line(15, 40, 195, 40);
+
+    // Logo
+    try {
+      doc.addImage('/logo.png', 'PNG', 15, 10, 60, 15);
+    } catch (e) {
+      doc.setTextColor(brandColor[0], brandColor[1], brandColor[2]);
+      doc.setFontSize(22);
+      doc.setFont('helvetica', 'bold');
+      doc.text('PLOTTERPEDIA', 15, 25);
+    }
+
+    // Quote Details (Header Sides)
+    doc.setTextColor(100, 100, 100);
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'bold');
+    doc.text('COTIZACIÓN PROFESIONAL', 195, 20, { align: 'right' });
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
+    doc.text(`N°: ${quoteNumber}`, 195, 26, { align: 'right' });
+    doc.text(`Fecha: ${date}`, 195, 31, { align: 'right' });
+
+    // Client Section
+    doc.setTextColor(0, 0, 0);
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'bold');
+    doc.text('DIRIGIDO A:', 15, 55);
+    doc.setFont('helvetica', 'normal');
+    doc.text(`Nombre: ${clientInfo.name || '---'}`, 15, 62);
+    doc.text(`Teléfono: ${clientInfo.phone || '---'}`, 15, 67);
+    doc.text(`DNI/RUC: ${clientInfo.ruc || '---'}`, 15, 72);
+    doc.text(`Dirección: ${clientInfo.address || '---'}`, 15, 77);
+
+    // Table
+    const tableColumn = ["Producto", "Cant.", "Precio Unit.", "Total"];
+    const tableRows = [];
+    quoteItems.forEach(item => {
+      tableRows.push([
+        item.name, 
+        item.qty, 
+        `$${item.price.toLocaleString()}`, 
+        `$${(item.price * item.qty).toLocaleString()}`
+      ]);
+    });
+
+    autoTable(doc, {
+      startY: 85,
+      head: [tableColumn],
+      body: tableRows,
+      headStyles: { fillColor: [125, 206, 209] },
+    });
+
+    const finalY = (doc.lastAutoTable?.finalY || 85) + 15;
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'bold');
+    doc.text(`TOTAL (USD): $${totalPrice.toLocaleString()}`, 150, finalY);
+
+    // Pretty Footer with Company Data
+    const footerY = 245;
+    doc.setDrawColor(125, 206, 209);
+    doc.setLineWidth(0.5);
+    doc.line(15, footerY - 5, 200, footerY - 5);
+
+    doc.setFontSize(8);
+    doc.setTextColor(100, 100, 100);
+    doc.setFont('helvetica', 'bold');
+    doc.text('TÉRMINOS Y CONDICIONES', 15, footerY);
+    
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(7);
+    doc.text('VALIDEZ: 15 Días calendarios.', 15, footerY + 5);
+    doc.text('DIRECCIÓN: Garcilaso de la vega 1345 / 3A 106, Lima.', 15, footerY + 10);
+    doc.text('TELÉFONO: (+51) 934 686 341 / 968 246 871 | EMAIL: ventas@plotterpedia.com', 15, footerY + 15);
+    doc.text('CUENTAS: BCP (Soles): 191-0000000-0-00 | Interbank (USD): 200-0000000-0-00', 15, footerY + 20);
+    doc.text('* A nombre de corporación Plotterpedia / Mente Grafik SAC.', 15, footerY + 25);
+
+    doc.save(`Cotizacion_${clientInfo.name || 'Cliente'}.pdf`);
+    setShowPreview(false);
+  };
 
   const filteredProducts = products.filter(p => 
     p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -140,6 +246,9 @@ function App() {
                     <h3>{product.name}</h3>
                     <div className="product-price">
                       {product.price > 0 ? `$${product.price.toLocaleString()}` : 'Consultar'}
+                    </div>
+                    <div style={{marginBottom: '1rem', fontSize: '0.8rem', color: product.stock > 0 ? 'var(--primary)' : '#ff4444'}}>
+                      {product.stock > 0 ? `Stock disponible: ${product.stock} unid.` : 'Sin stock disponible'}
                     </div>
                     <button className="btn btn-primary" style={{width: '100%'}} onClick={() => addToQuote(product)}>
                       Añadir a Cotización
@@ -214,6 +323,15 @@ function App() {
                       placeholder="https://..."
                     />
                   </div>
+                  <div className="form-group">
+                    <label>Stock / Cantidad</label>
+                    <input 
+                      type="number"
+                      value={newProduct.stock}
+                      onChange={e => setNewProduct({...newProduct, stock: e.target.value})}
+                      placeholder="0"
+                    />
+                  </div>
                 </div>
                 <button type="submit" className="btn btn-primary" style={{width: '100%', marginTop: '1rem'}}>
                   {editingProduct ? 'Actualizar Producto' : 'Guardar en Inventario'}
@@ -242,6 +360,7 @@ function App() {
                       <th style={{padding: '1rem'}}>Producto</th>
                       <th style={{padding: '1rem'}}>Categoría</th>
                       <th style={{padding: '1rem'}}>Precio</th>
+                      <th style={{padding: '1rem'}}>Stock</th>
                       <th style={{padding: '1rem'}}>Acciones</th>
                     </tr>
                   </thead>
@@ -251,6 +370,17 @@ function App() {
                         <td style={{padding: '1rem'}}>{p.name}</td>
                         <td style={{padding: '1rem'}}><span className="product-category" style={{fontSize: '0.7rem'}}>{p.category}</span></td>
                         <td style={{padding: '1rem'}}>${p.price.toLocaleString()}</td>
+                        <td style={{padding: '1rem'}}>
+                          <span style={{
+                            padding: '4px 8px', 
+                            borderRadius: '4px', 
+                            background: p.stock > 0 ? 'rgba(93, 193, 185, 0.1)' : 'rgba(255, 68, 68, 0.1)',
+                            color: p.stock > 0 ? 'var(--primary)' : '#ff4444',
+                            fontSize: '0.85rem'
+                          }}>
+                            {p.stock || 0} unid.
+                          </span>
+                        </td>
                         <td style={{padding: '1rem'}}>
                           <div style={{display: 'flex', gap: '15px'}}>
                             <button onClick={() => startEdit(p)} title="Editar" style={{background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer'}}>
@@ -316,9 +446,13 @@ function App() {
                 <span>TOTAL (USD)</span>
                 <span>${totalPrice.toLocaleString()}</span>
               </div>
-              <button className="btn btn-primary" style={{width: '100%', marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px'}}>
+            <button 
+                className="btn btn-primary" 
+                style={{width: '100%', marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px'}}
+                onClick={() => setShowPreview(true)}
+              >
                 <FileText size={20} />
-                Generar PDF
+                Previsualizar y Generar
               </button>
               <button className="btn btn-outline" style={{width: '100%'}} onClick={() => setQuoteItems([])}>
                 Limpiar todo
@@ -327,6 +461,143 @@ function App() {
           </>
         )}
       </div>
+
+      {/* Preview Modal */}
+      {showPreview && (
+        <div className="modal-overlay">
+          <div className="modal-content glass-effect animate-fade">
+            <div className="quote-header">
+              <h2>Vista Previa de Cotización</h2>
+              <button onClick={() => setShowPreview(false)} style={{background: 'none', border: 'none', color: 'white', cursor: 'pointer'}}>
+                <X size={24} />
+              </button>
+            </div>
+            <div className="modal-body">
+              {/* Form Section */}
+              <div className="client-form" style={{padding: 0}}>
+                <h3 style={{marginBottom: '1.5rem', color: 'var(--primary)'}}>Datos del Destinatario</h3>
+                <div style={{display: 'grid', gap: '1.2rem'}}>
+                  <div className="form-group">
+                    <label>Nombre / Razón Social</label>
+                    <input 
+                      value={clientInfo.name}
+                      onChange={e => setClientInfo({...clientInfo, name: e.target.value})}
+                      placeholder="Ej. Juan Perez"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Teléfono</label>
+                    <input 
+                      value={clientInfo.phone}
+                      onChange={e => setClientInfo({...clientInfo, phone: e.target.value})}
+                      placeholder="999 999 999"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>DNI / RUC</label>
+                    <input 
+                      value={clientInfo.ruc}
+                      onChange={e => setClientInfo({...clientInfo, ruc: e.target.value})}
+                      placeholder="10..."
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Dirección</label>
+                    <input 
+                      value={clientInfo.address}
+                      onChange={e => setClientInfo({...clientInfo, address: e.target.value})}
+                      placeholder="Av. Siempre Viva 123"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Summary Section (Visual Preview) */}
+              <div className="preview-paper" style={{
+                background: 'white', 
+                color: '#333', 
+                padding: '2.5rem', 
+                borderRadius: '4px', 
+                boxShadow: '0 4px 25px rgba(0,0,0,0.4)',
+                minHeight: '500px',
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative'
+              }}>
+                {/* Header in Preview */}
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                  marginBottom: '1rem',
+                  paddingBottom: '1rem',
+                  borderBottom: '2px solid var(--primary)'
+                }}>
+                  <div style={{width: '150px'}}>
+                    <img src="/logo.png" alt="Logo" style={{width: '100%', height: 'auto'}} onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'block';
+                    }} />
+                    <h2 style={{display: 'none', color: 'var(--primary)', margin: 0}}>PLOTTERPEDIA</h2>
+                  </div>
+                  <div style={{textAlign: 'right', fontSize: '0.8rem', color: '#666'}}>
+                    <div style={{fontWeight: 900, color: '#333', fontSize: '1rem', marginBottom: '0.3rem'}}>COTIZACIÓN</div>
+                    <div>N°: CP-{Math.floor(1000 + Math.random() * 9000)}</div>
+                    <div>Fecha: {new Date().toLocaleDateString()}</div>
+                  </div>
+                </div>
+
+                <div style={{marginBottom: '2rem', fontSize: '0.8rem'}}>
+                  <div style={{fontWeight: 700, marginBottom: '0.5rem', borderBottom: '1px solid #eee', paddingBottom: '0.3rem'}}>DIRIGIDO A:</div>
+                  <div>{clientInfo.name || '---'}</div>
+                  <div>{clientInfo.phone || '---'}</div>
+                  <div>{clientInfo.ruc || '---'}</div>
+                  <div>{clientInfo.address || '---'}</div>
+                </div>
+
+                <div style={{flex: 1}}>
+                  <table style={{width: '100%', fontSize: '0.8rem', borderCollapse: 'collapse'}}>
+                    <thead>
+                      <tr style={{borderBottom: '2px solid #eee', textAlign: 'left'}}>
+                        <th style={{padding: '0.5rem 0'}}>ITEM</th>
+                        <th style={{padding: '0.5rem 0', textAlign: 'center'}}>CANT.</th>
+                        <th style={{padding: '0.5rem 0', textAlign: 'right'}}>TOTAL</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {quoteItems.map(item => (
+                        <tr key={item.id} style={{borderBottom: '1px solid #f9f9f9'}}>
+                          <td style={{padding: '0.5rem 0'}}>{item.name}</td>
+                          <td style={{padding: '0.5rem 0', textAlign: 'center'}}>{item.qty}</td>
+                          <td style={{padding: '0.5rem 0', textAlign: 'right'}}>${(item.price * item.qty).toLocaleString()}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <div style={{borderTop: '2px solid #eee', marginTop: '1rem', paddingTop: '1rem', textAlign: 'right'}}>
+                  <div style={{fontSize: '1.1rem', fontWeight: 700}}>
+                    TOTAL: ${totalPrice.toLocaleString()} USD
+                  </div>
+                </div>
+
+                {/* Footer in Preview */}
+                <div style={{marginTop: 'auto', paddingTop: '1rem', fontSize: '0.65rem', color: '#888', borderTop: '1px solid #f0f0f0'}}>
+                  <div style={{fontWeight: 700, color: 'var(--primary)', marginBottom: '0.3rem'}}>PLOTTERPEDIA / MENTE GRAFIC SAC</div>
+                  <div>📍 Garcilaso de la vega 1345 / 3A 106, Lima.</div>
+                  <div>📞 (+51) 934 686 341 / 968 246 871 | ✉️ ventas@plotterpedia.com</div>
+                  <div>💳 BCP (S): 191-0000000-0-00 | Interbank ($): 200-0000000-0-00</div>
+                </div>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="btn btn-outline" onClick={() => setShowPreview(false)}>Cancelar</button>
+              <button className="btn btn-primary" onClick={generatePDF}>Confirmar y Generar PDF</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

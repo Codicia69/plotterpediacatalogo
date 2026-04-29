@@ -1,44 +1,212 @@
 [
   {
     "id": 1,
-    "name": "Cabezal Epson I3200",
-    "price": 850,
+    "name": "Cabezal I1600 A1 Original para Plotter",
+    "price": 890,
     "category": "Cabezales",
-    "image": "https://via.placeholder.com/300x200?text=Cabezal+Epson"
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/cabezal-i1600-a1.jpg"
   },
   {
     "id": 2,
-    "name": "Tinta UV Cian 1L",
-    "price": 120,
-    "category": "Tintas",
-    "image": "https://via.placeholder.com/300x200?text=Tinta+UV"
+    "name": "Cabezal I1600 Original para Plotter – Alta Precisión",
+    "price": 1100,
+    "category": "Cabezales",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/cabezal-i1600-e1.jpg"
   },
   {
     "id": 3,
-    "name": "Bomba de Tinta Tipo A",
-    "price": 45,
-    "category": "Bombas",
-    "image": "https://via.placeholder.com/300x200?text=Bomba"
+    "name": "Cabezal I1600 U1 Original para Plotter",
+    "price": 1390,
+    "category": "Cabezales",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/cabezal-i1600-u1.jpg"
   },
   {
     "id": 4,
-    "name": "Cable USB 3.0",
-    "price": 25,
-    "category": "Cables",
-    "image": "https://via.placeholder.com/300x200?text=Cable"
+    "name": "Bomba de Aire Grande para Plotter Epson",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/bomba-aire-grande.jpg"
   },
   {
     "id": 5,
-    "name": "Sistema de Curado LED",
-    "price": 500,
-    "category": "Sistemas de Curado",
-    "image": "https://via.placeholder.com/300x200?text=Curado+LED"
+    "name": "Bomba Peristáltica para Plotter Epson",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/bomba-peristaltica.jpg"
   },
   {
     "id": 6,
-    "name": "Rodillo de Limpieza",
-    "price": 35,
-    "category": "Accesorios",
-    "image": "https://via.placeholder.com/300x200?text=Rodillo"
+    "name": "Botella Dispensadora de Tinta para Plotter",
+    "price": 0,
+    "category": "Insumos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/botella-dispensadora.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Cabezal I3200 A1 Original para Plotter",
+    "price": 0,
+    "category": "Cabezales",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/cabezal-i3200-a1.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Cable Flex I3200 para Cabezales Epson",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/cable-flex-i3200.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Cap I3200 para Plotter – Estación de Limpieza",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/cap-i3200.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Controlador de Temperatura Ewelly para Plotter",
+    "price": 0,
+    "category": "Electrónicos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/controlador-temperatura.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Damper I3200 para Plotter – Filtro de Tinta",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/damper-i3200.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Encoder Strip para Plotter",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/encoder-strip.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Fibra Óptica Cuadrada para Plotter Hosonsoft",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/fibra-optica.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Filtro de Tinta Redondo para Plotter",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/filtro-tinta.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Fuente de Poder para Plotter",
+    "price": 0,
+    "category": "Electrónicos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/fuente-poder.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Hisopos de Limpieza para Plotter",
+    "price": 0,
+    "category": "Mantenimiento",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/hisopos-limpieza.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Holder Metálico para Cabezal I3200",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/holder-metalico.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Lámpara UV con Enfriado por Aire",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/lampara-uv.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Motor Digital para Plotter",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/motor-digital.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Potenciómetro 24V para Plotter",
+    "price": 0,
+    "category": "Electrónicos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/potenciometro.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Recirculador de Tinta Blanca para Plotter",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/recirculador-tinta.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Sensor de Papel para Plotter",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/sensor-papel.jpg"
+  },
+  {
+    "id": 23,
+    "name": "Servomotor Leadshine para Plotter",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/servomotor-leadshine.jpg"
+  },
+  {
+    "id": 24,
+    "name": "Sistema Bulk Completo para Plotter",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/sistema-bulk.jpg"
+  },
+  {
+    "id": 25,
+    "name": "Slider Hiwin para Plotter",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/slider-hiwin.jpg"
+  },
+  {
+    "id": 26,
+    "name": "Tanque de Tinta Blanca con Mezcladora",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/tanque-tinta.jpg"
+  },
+  {
+    "id": 27,
+    "name": "Tubo de Tinta con Conector Hembra",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/tubo-tinta.jpg"
+  },
+  {
+    "id": 28,
+    "name": "Vacuum Grande para Plotter",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/vacuum-grande.jpg"
+  },
+  {
+    "id": 29,
+    "name": "Válvula de No Retorno para Plotter",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/valvula-no-retorno.jpg"
+  },
+  {
+    "id": 30,
+    "name": "Wiper Azul para Plotter – Goma de Limpieza",
+    "price": 0,
+    "category": "Repuestos",
+    "image": "https://plotterpedia.com/wp-content/uploads/2024/01/wiper-azul.jpg"
   }
 ]
